@@ -18,7 +18,7 @@ public class WalletsController : ControllerBase
     }
     
     /// <summary>
-    /// Recebe os dados da carteira de dinheiro vinculada ao usuário fornecido.
+    /// Retorna os dados da carteira de dinheiro vinculada ao usuário fornecido.
     /// </summary>
     /// <param name="id"></param>
     /// <returns>Dados da carteira de dinheiro.</returns>
@@ -28,6 +28,7 @@ public class WalletsController : ControllerBase
     {
         var wallet = await _context.Wallets
             .Include(w => w.User)
+            .Include(w => w.Transactions)
             .FirstOrDefaultAsync(w => w.Id == id);
         
         return Ok(wallet);
@@ -56,43 +57,4 @@ public class WalletsController : ControllerBase
 
         return Ok(wallet);
     }
-
-    // fix: user not showing on json response
-    // [HttpGet]
-    // [Route("{id:int}")]
-    // public async Task<ActionResult<Wallet>> Get([FromRoute] int? id)
-    // {
-    //     if (id == null) return BadRequest();
-    //
-    //     var wallet = await _context.Wallets
-    //         .Where(w => w.UserId == id)
-    //         .Include(w => w.Transactions)
-    //         .FirstOrDefaultAsync();
-    //
-    //     if (wallet == null) return NotFound();
-    //
-    //     return Ok(wallet);
-    // }
-    
-    // [HttpPost]
-    // [Route("{id:int}")]
-    // public async Task<ActionResult<Wallet>> Create([FromRoute] int? id)
-    // {
-    //     if (id == null) return BadRequest();
-    //
-    //     var user = await _context.Users.FindAsync(id);
-    //     if (user == null) return NotFound();
-    //
-    //     var wallet = new Wallet
-    //     {
-    //         UserId = user.Id,
-    //         Balance = 100,
-    //         User = user
-    //     };
-    //
-    //     _context.Wallets.Add(wallet);
-    //     await _context.SaveChangesAsync();
-    //
-    //     return Ok(user.Wallet);
-    // }
 }

@@ -10,5 +10,5 @@ public class Wallet
     public bool IsActive { get; set; } = false;
     [JsonIgnore]
     public virtual User User { get; set; }
-    // public virtual ICollection<Transaction> Transactions { get; set; } = new HashSet<Transaction>();
+    public virtual ICollection<Transaction> Transactions { get; set; } = new HashSet<Transaction>();
 }

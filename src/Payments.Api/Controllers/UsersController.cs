@@ -18,7 +18,7 @@ public class UsersController : ControllerBase
     }
 
     /// <summary>
-    /// Lista todos os usuários cadastrados no banco de dados.
+    /// Lista os usuários cadastrados no banco de dados.
     /// </summary>
     /// <returns>Lista de usuários cadastrados.</returns>
     [HttpGet]
@@ -26,6 +26,7 @@ public class UsersController : ControllerBase
     {
         var users = await _context.Users
             .Include(u => u.Wallet)
+            .ThenInclude(w => w.Transactions)
             .ToListAsync();
 
         return Ok(users);
