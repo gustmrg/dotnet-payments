@@ -8,8 +8,9 @@
 
 
 <div align="center">
-	<img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361" />
-	<a href="https://dotnet-cadastros-crud.herokuapp.com" target="_blank"><img alt="Website Status" src="https://img.shields.io/website?down_color=red&down_message=offline&up_color=success&up_message=online&url=https%3A%2F%2Fdotnet-cadastros-crud.herokuapp.com%2F" /></a>
+	<img alt="License" src="https://img.shields.io/github/license/gustmrg/dotnet-payments-api?color=brightgreen" />
+	<a href="https://dotnet-payments.azurewebsites.net/swagger/index.html" target="_blank"><img alt="Website Status" src="https://img.shields.io/website?down_color=red&down_message=offline&up_color=lightgreen&up_message=online&url=https%3A%2F%2Fdotnet-payments.azurewebsites.net%2Fswagger%2Findex.html
+" /></a>
 </div>
 
 
